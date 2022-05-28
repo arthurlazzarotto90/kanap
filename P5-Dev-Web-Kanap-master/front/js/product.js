@@ -2,8 +2,6 @@
 
 const url = window.location.search;
 
-console.log(url);
-
 const urlData = new URLSearchParams(url);
 console.log(urlData);
 
@@ -16,7 +14,7 @@ const titre = document.getElementById('title')
 const image = document.querySelector('.item__img')
 const prix = document.getElementById('price')
 const description = document.getElementById('description')
-const option = document.getElementById('colors')
+const selection = document.getElementById('colors')
     
 fetch('http://localhost:3000/api/products/'+id)
    .then(res => res.json())
@@ -29,28 +27,62 @@ fetch('http://localhost:3000/api/products/'+id)
     titre.textContent = data.name
     imgProduit.src = data.imageUrl
     prix.textContent = data.price
+    couleur = data.colors 
 
-
-    const couleur = data.colors 
-
+   
     for (var i = 0; i < couleur.length; i++){
+    
       const optionColors = document.createElement('option') 
-      option.append(optionColors)
+      selection.append(optionColors)
 
       optionColors.text = couleur[i]
       optionColors.value = couleur[i]
 
+      console.log(couleur[i]);
 
-       console.log(couleur[i]);
+     
     }
+   
+
+  })
+
+
+  const btn = document.getElementById('addToCart')
+ 
+  console.log(btn);
+
+
+ function getNumber()
+  {
+   const seleclNumber = document.querySelector('input').value;
+   return seleclNumber 
+  }
+
+ function selecte()
+  {
+  const selecteOption = document.getElementById('colors').value;
+  return   selecteOption
+  }
 
 
 
 
+  const panierPro = btn.addEventListener("click", event => {
+    alert('vouler vous se canape ' + titre.textContent )
+   
 
-   })
-        
+    let panierProduit = {
   
+     id_Pro: id,
+     nomProdui: titre.textContent,
+     lePrix:  prix.textContent,
+     coleurs: selecte(),
+     Number: getNumber(),
+    
+    }
+    
+  
+   console.log(panierProduit);
+  })
 
-
-
+ 
