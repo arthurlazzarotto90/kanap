@@ -25,6 +25,7 @@ fetch('http://localhost:3000/api/products/'+id)
     image.append(imgProduit)
  
     titre.textContent = data.name
+    description.textContent = data.description
     imgProduit.src = data.imageUrl
     prix.textContent = data.price
     couleur = data.colors 
@@ -70,16 +71,19 @@ fetch('http://localhost:3000/api/products/'+id)
   const panierPro = btn.addEventListener("click", event => {
     alert('vouler vous se canape ' + titre.textContent )
    
+   
 
     let panierProduit = {
   
      id_Pro: id,
      nomProdui: titre.textContent,
-     lePrix:  prix.textContent,
+     Prix:  prix.textContent,
      coleurs: selecte(),
      Number: getNumber(),
-    
+     
     }
+   
+
     
   
    console.log(panierProduit);
