@@ -7,8 +7,6 @@ function numeroComende(max) {
 
 }
 
-
-
 const creeNumero = document.createElement('p');
 
 creeNumero.innerHTML = numeroComende(100000000000)
@@ -16,4 +14,7 @@ creeNumero.innerHTML = numeroComende(100000000000)
 numero.appendChild(creeNumero);
 
 
+function closes() {
+   close("./confirmation.html")
+}
 

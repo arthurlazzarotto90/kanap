@@ -55,46 +55,16 @@ function panier() {
     var balPrixProduit = document.createElement("p");
     divProductContentDescription.appendChild(balPrixProduit);
     balPrixProduit.innerHTML = tableProduct[i].Prix * tableProduct[i].Number + "€"; 
-    balPrixProduit.className = "caca";
+
+    balPrixProduit.id = "prie";
     
-    //var recuperPrix = tableProduct[i].Prix;
-    //var recuperQuantite  = ableProduct[i].Number;
 
-    //var caca = Number(recuperPrix);
-
-    //console.log(caca);
-    //var kaka = Number(recuperQuantite);
-
-    //console.log(kaka);
-
-   var recuperPrix = Number(tableProduct[i].Prix);
-   var recuperQuantite = Number(tableProduct[i].Number);
-
-   console.log(recuperPrix);
-   console.log(recuperQuantite);
-
-   var totalPrixQuantiter = recuperPrix * recuperQuantite
-
-   
-
+    var priPro = tableProduct[i].Prix * tableProduct[i].Number
  
-   console.log(totalPrixQuantiter);
-
 
     
 
-
-
- 
     
-
-
-
- 
-  
-
-  
-   
 
     // cree les quantiter 
     var divProduitQuantiterInput = document.createElement("div");
@@ -108,13 +78,6 @@ function panier() {
     var paraQuantiter = document.createElement("p");
     divProductQuantitre.appendChild(paraQuantiter);
     paraQuantiter.innerHTML = "Qté :" + tableProduct[i].Number ;
-
-
-
-
-     
-  
-
 
     //cree la supresion 
 
@@ -131,7 +94,32 @@ function panier() {
   }
 }
 
-var recupe 
+//prix total
+
+function recupePriex () {
+  
+ var table = []
+
+ for (var i = 0; i < tableProduct.length; i++){
+   var tablePrice = tableProduct[i].Prix * tableProduct[i].Number 
+   table.push(Number(tablePrice))
+   
+  }
+
+
+ const tableValue = 0;
+ const tableInitial = table.reduce(
+  (valeur, valeur2) => valeur + valeur2,
+  tableValue
+);
+
+var priexTotal = document.getElementById('totalPrice')
+priexTotal.append(tableInitial+'€')
+
+
+}
+
+recupePriex ()
 
 const id_Pro = (id) => {
   var newTableProduct = tableProduct.filter(el => el.id_Pro != id)
@@ -158,7 +146,7 @@ for (var n = 0; n < total.length; n++) {
 totalArticl_id.textContent = sum;
 
 
-//total prix
+//total panier
 
 
 var id_numero = document.getElementById('numero')
@@ -174,7 +162,7 @@ for (var z = 0; z < prixtable.length; z++) {
 
 
 
-id_numero.textContent = sum + ' Panier';
+id_numero.textContent = sum + 'Panier';
 
 
 
@@ -188,36 +176,9 @@ eventListnerToAttach.forEach(
 
 
 
+function resetStyle() {
 
-function confirmation() {
-  console.log(document.forme);
-  if (document.forme.firstName.value == "") {} else {
-    location.href = "http://127.0.0.1:5502/front/html/confirmation.html";
-    localStorage.clear("Produ");
-  }
-
-  if (document.forme.lastName.value == "") {} else {
-    location.href = "http://127.0.0.1:5502/front/html/confirmation.html";
-    localStorage.clear("Produ");
-  }
-
-  if (document.forme.address.value == "") {} else {
-    location.href = "http://127.0.0.1:5502/front/html/confirmation.html";
-    localStorage.clear("Produ");
-  }
-
-  if (document.forme.city.value == "") {} else {
-    location.href = "http://127.0.0.1:5502/front/html/confirmation.html";
-    localStorage.clear("Produ");
-  }
-
-  if (document.forme.email.value == "" + "@") {} else {
-    location.href = "http://127.0.0.1:5502/front/html/confirmation.html";
-    localStorage.clear("Produ");
-
-  }
-
-
-
-}
-arthur
+  open("./confirmation.html")
+  localStorage.clear();
+  location.reload();
+};
