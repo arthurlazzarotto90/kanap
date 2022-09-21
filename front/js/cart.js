@@ -119,7 +119,7 @@ priexTotal.append(tableInitial+'€')
 
 }
 
-recupePriex ()
+recupePriex()
 
 const id_Pro = (id) => {
   var newTableProduct = tableProduct.filter(el => el.id_Pro != id)
@@ -174,11 +174,20 @@ eventListnerToAttach.forEach(
   }
 )
 
+var btnComende  = document.getElementById('order')
+
+btnComende.addEventListener("click", () => {
+  var salut = document.forms['forme'].firstName.value;
+  if( !salut.replace(/\s+/, '').length ) {
+    alert( "Les champs son vides!" );
+  return false;}
+  resetStyle()
+})
 
 
 function resetStyle() {
-
   open("./confirmation.html")
   localStorage.clear();
   location.reload();
+
 };
