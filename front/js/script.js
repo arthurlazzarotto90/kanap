@@ -13,15 +13,11 @@ function kanap() {
             let titre = document.createElement('h3')
             let para = document.createElement('p')
 
- 
             section.append(produit)
             produit.append(article)
             article.append(image)
             article.append(titre) 
             article.append(para)
-
-        
-         
 
              let liste = data[i]._id
 
@@ -29,11 +25,6 @@ function kanap() {
             titre.textContent = data[i].name 
             para.textContent = data[i].description
             image.src = data[i].imageUrl
-            
-
-          
-       
-           console.log(data);
       
         }
     } )
@@ -42,13 +33,10 @@ function kanap() {
 
 kanap()
 
-
-
 var produitEnregitre = JSON.parse(localStorage.getItem("Produ"));
 console.log(produitEnregitre);
 
 var tableProduct = produitEnregitre;
-
 
 var id_numero = document.getElementById('numero')     
 var total = [];
@@ -59,9 +47,7 @@ for( var f = 0; f < tableProduct.length; f++){
    
   total.push(Number(totalQuantity));
   
-    console.log(total);
 } 
-
 
 var  sum = 0 ;
 
