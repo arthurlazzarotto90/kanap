@@ -42,6 +42,8 @@ fetch('http://localhost:3000/api/products/'+id)
 
   });
 
+  
+
  function getNumber()
   {
    var seleclNumber = document.querySelector('input').value;
@@ -61,6 +63,13 @@ fetch('http://localhost:3000/api/products/'+id)
 
   btn.addEventListener("click", () => {
     location.reload();
+   
+    var verification = document.getElementById('quantity').value;
+    if (!verification.replace( 0 , '').length) {
+      alert ("veuille renplire le champ");
+      return false;
+    }
+   
      
     if (confirm( `${titre.textContent} "ajouté au panier"`)){
 
@@ -89,8 +98,8 @@ fetch('http://localhost:3000/api/products/'+id)
     }else{
       produitEnregitre = [];
      ajouté();
-
     }
+    
     
   } else {
     

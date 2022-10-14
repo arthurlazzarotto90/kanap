@@ -16,5 +16,7 @@ numero.appendChild(creeNumero);
 
 function closes() {
    close("./confirmation.html")
+   open("./index.html")
+   localStorage.clear();
 }
 

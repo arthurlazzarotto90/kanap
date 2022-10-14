@@ -174,20 +174,23 @@ eventListnerToAttach.forEach(
   }
 )
 
-var btnComende  = document.getElementById('order')
+var btnComende = document.getElementById('order');
 
 btnComende.addEventListener("click", () => {
-  var salut = document.forms['forme'].firstName.value;
-  if( !salut.replace(/\s+/, '').length ) {
-    alert( "Les champs son vides!" );
-  return false;}
+  var comende = document.getElementById('email').value;
+  if( !comende.replace( /\s+/, '').length ) {
+    alert("les champs son vides!");
+    return false;
+  } 
   resetStyle()
+
 })
 
 
+
+//localStorage.clear();
+
 function resetStyle() {
   open("./confirmation.html")
-  localStorage.clear();
-  location.reload();
-
+  close("./cart.html")
 };
